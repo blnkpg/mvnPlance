@@ -43,8 +43,8 @@ public class User implements Serializable {
 	private Person person;
 
 	// uni-directional many-to-one association to Timeinfo
-	@OneToOne(cascade = CascadeType.PERSIST )
-	@JoinColumn(name = "fk_timeinfo" , nullable = false )
+	@OneToOne(cascade = CascadeType.ALL )
+	@JoinColumn(name = "fk_timeinfo" , nullable = true )
 	private Timeinfo timeinfo;
 
 	public User() {

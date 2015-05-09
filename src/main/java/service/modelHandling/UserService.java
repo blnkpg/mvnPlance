@@ -1,12 +1,10 @@
 package service.modelHandling;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 import model.Person;
-import model.Timeinfo;
 import model.User;
 import service.PersistenceHandler;
 
@@ -68,10 +66,10 @@ public class UserService extends ModelService<User> {
 		}
 
 		if (crippled.getTimeinfo() == null) {
-			crippled.setTimeinfo(new Timeinfo());
-			crippled.getTimeinfo().setCreateTime(new Date(System.currentTimeMillis()));
+			// crippled.setTimeinfo(new Timeinfo());
+			// crippled.getTimeinfo().setCreateTime(new Date(System.currentTimeMillis()));
 		}
-		crippled.getTimeinfo().setUpdateTime(new Date(System.currentTimeMillis()));
+		// crippled.getTimeinfo().setUpdateTime(new Date(System.currentTimeMillis()));
 
 		this.persistence.getPersistenceService().persist(managedClass, crippled);
 
@@ -108,6 +106,8 @@ public class UserService extends ModelService<User> {
 	private void fillPersonHashSet(HashSet<Person> hashset , List results) {
 		for (Object object : results) {
 			if (managedClass.isInstance(object)) {
+				// TODO nochmal überprüfen denn eine Person deren Email schon in der db ist wird hier nicht richtig gecastet.... ich glaub das resultset is da
+				// nicht richtig
 				hashset.add((Person) object);
 			} else {
 				System.err.println("Cannot cast Object");
