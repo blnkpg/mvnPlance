@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 445.5 457.5" enable-background="new 0 0 445.5 457.5" xml:space="preserve">
+<g id="Ebene_1">
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="16.5384" y1="76.3901" x2="429.5384" y2="76.3901">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="1.530612e-002" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#82368C"/>
+	</linearGradient>
+	<path fill="url(#SVGID_1_)" stroke="#000000" stroke-miterlimit="10" d="M380.7,129.4H65.4c-26.9,0-48.9-22-48.9-48.9v-8.3
+		c0-26.9,22-48.9,48.9-48.9h315.3c26.9,0,48.9,22,48.9,48.9v8.3C429.5,107.4,407.6,129.4,380.7,129.4z"/>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="429.5383" y1="382.3901" x2="16.5384" y2="382.3901">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="0.1224" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#1D71B8"/>
+	</linearGradient>
+	<path fill="url(#SVGID_2_)" stroke="#000000" stroke-miterlimit="10" d="M380.7,435.4H65.4c-26.9,0-48.9-22-48.9-48.9v-8.3
+		c0-26.9,22-48.9,48.9-48.9h315.3c26.9,0,48.9,22,48.9,48.9v8.3C429.5,413.4,407.6,435.4,380.7,435.4z"/>
+	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="16.5384" y1="228.3901" x2="429.5384" y2="228.3901">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="0.1224" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#E71D73"/>
+	</linearGradient>
+	<path fill="url(#SVGID_3_)" stroke="#000000" stroke-miterlimit="10" d="M380.7,281.4H65.4c-26.9,0-48.9-22-48.9-48.9v-8.3
+		c0-26.9,22-48.9,48.9-48.9h315.3c26.9,0,48.9,22,48.9,48.9v8.3C429.5,259.4,407.6,281.4,380.7,281.4z"/>
+	<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M67.3,129.4h-1.9c-26.9,0-48.9-22-48.9-48.9
+		v-8.2c0-26.9,22-48.9,48.9-48.9h1.9c26.9,0,48.9,22,48.9,48.9v8.2C116.1,107.4,94.1,129.4,67.3,129.4z"/>
+	<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M67.3,281.3h-1.9c-26.9,0-48.9-22-48.9-48.9
+		v-8.2c0-26.9,22-48.9,48.9-48.9h1.9c26.9,0,48.9,22,48.9,48.9v8.2C116.1,259.4,94.1,281.3,67.3,281.3z"/>
+	<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M380.7,435.3h-1.9c-26.9,0-48.9-22-48.9-48.9
+		v-8.2c0-26.9,22-48.9,48.9-48.9h1.9c26.9,0,48.9,22,48.9,48.9v8.2C429.5,413.4,407.6,435.3,380.7,435.3z"/>
+</g>
+<g id="Ebene_2">
+</g>
+</svg>

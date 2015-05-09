@@ -1,0 +1,17 @@
+@import "addons.scss";
+@import "mvnplance.scss";
+@import "horizontalAccordion.scss";
+//font import
+@include font(Roboto, "../../mvnplance/Roboto/Roboto-Light");
+
+/* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
+/* The actual styles should be defined in mvnplance.scss */
+.mvnplance {
+  @include addons;
+  @include mvnplance;
+  
+  
+  
+  
+
+}

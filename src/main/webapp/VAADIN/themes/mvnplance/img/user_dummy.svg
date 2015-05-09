@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 410 380" enable-background="new 0 0 410 380" xml:space="preserve">
+<g id="Ebene_1">
+	<path fill="#F6F6F6" d="M317.3,169.9c0,61.9-50.1,112-112,112s-112-50.1-112-112s50.1-112,112-112c10.8,0,21.2,1.5,31.1,4.4
+		C283.1,75.8,317.3,118.8,317.3,169.9z"/>
+	<radialGradient id="SVGID_1_" cx="205" cy="169.9157" r="112" gradientUnits="userSpaceOnUse">
+		<stop  offset="0.5744" style="stop-color:#000000;stop-opacity:0"/>
+		<stop  offset="0.7977" style="stop-color:#000000;stop-opacity:0"/>
+		<stop  offset="0.8127" style="stop-color:#35362F;stop-opacity:1.476930e-002"/>
+		<stop  offset="0.8416" style="stop-color:#5A634B;stop-opacity:4.338507e-002"/>
+		<stop  offset="0.8705" style="stop-color:#6F8150;stop-opacity:7.200415e-002"/>
+		<stop  offset="0.8988" style="stop-color:#799749;stop-opacity:9.998717e-002"/>
+		<stop  offset="0.9263" style="stop-color:#7DA73E;stop-opacity:0.1272"/>
+		<stop  offset="0.9528" style="stop-color:#7DB134;stop-opacity:0.1534"/>
+		<stop  offset="0.9779" style="stop-color:#7BB72C;stop-opacity:0.1781"/>
+		<stop  offset="1" style="stop-color:#7AB929;stop-opacity:0.2"/>
+	</radialGradient>
+	<path fill="url(#SVGID_1_)" d="M317,169.9c0,61.9-50.1,112-112,112s-112-50.1-112-112s50.1-112,112-112c10.8,0,21.2,1.5,31.1,4.4
+		C282.8,75.8,317,118.8,317,169.9z"/>
+	<path fill="#1D71B8" stroke="#000000" stroke-miterlimit="10" d="M159.7,264.5c18.1,17.4,66.3,19.2,89.6,0
+		c18.9-4.1,32.9,35.2,32.9,35.2H127.8C127.8,299.7,141,260.9,159.7,264.5z"/>
+	<polygon fill="#F9B233" stroke="#000000" stroke-miterlimit="10" points="330.7,4.7 250.7,67.5 302.8,114.8 	"/>
+</g>
+<g id="Ebene_2">
+	<path fill="#FFFFFF" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M145.7,148.7c0,0-1.7-27,21.2-27
+		s19.8,27,19.8,27"/>
+	<path fill="#FFFFFF" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M230.2,148.7c0,0-1.7-27,21.2-27
+		s19.8,27,19.8,27"/>
+	<path fill="#FFFFFF" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M239.6,189.9c0,0-14.1,46.4-32.9,13.5
+		C190.8,236,174,189.9,174,189.9"/>
+</g>
+</svg>
