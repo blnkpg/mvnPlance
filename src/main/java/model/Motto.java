@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -16,7 +16,7 @@ public class Motto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(unique=true, nullable=false, length=45)
 	private String mottoName;
 
@@ -31,7 +31,7 @@ public class Motto implements Serializable {
 			@JoinColumn(name="tags_tagname", nullable=false)
 			}
 		)
-	private List<Tag> tags;
+	private Set<Tag> tags;
 
 	public Motto() {
 	}
@@ -44,11 +44,11 @@ public class Motto implements Serializable {
 		this.mottoName = mottoName;
 	}
 
-	public List<Tag> getTags() {
+	public Set<Tag> getTags() {
 		return this.tags;
 	}
 
-	public void setTags(List<Tag> tags) {
+	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
 	}
 

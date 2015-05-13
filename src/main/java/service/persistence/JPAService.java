@@ -1,4 +1,4 @@
-package service.jpa;
+package service.persistence;
 
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
@@ -8,8 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NamedQuery;
 import javax.persistence.Persistence;
-
-import model.dao.jpa.JPADataAccessObject;
 
 public class JPAService implements PersistenceService {
 
@@ -66,7 +64,6 @@ public class JPAService implements PersistenceService {
 		sqlQuery += " WHERE ";
 		sqlQuery += listWhereValues(columnNames, columnValues);
 		return getAllEntityWithNativeQuery(sqlQuery);
-
 	}
 
 	@Override
@@ -77,20 +74,22 @@ public class JPAService implements PersistenceService {
 
 	@Override
 	public void persist(Class clazz , Object obj) {
-		this.entityManager.persist(clazz.cast(obj));
+		System.out.println("Klasse persistiert: " + clazz.getName());
+
+		if (!this.entityManager.contains(obj)) {
+			this.entityManager.getTransaction().begin();
+			this.entityManager.persist(clazz.cast(obj));
+			// this.entityManager.flush();
+			this.entityManager.getTransaction().commit();
+		} else {
+			this.entityManager.merge(obj);
+		}
+
 	}
 
 	@Override
 	public void remove(Class clazz , Object obj) {
-		if (daoRegister.containsKey(clazz.getName())) {
-			try {
-				JPADataAccessObject temp = (JPADataAccessObject) daoRegister.get(clazz.getName()).newInstance();
-				temp.remove(obj);
-			} catch (InstantiationException | IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+
 	}
 
 	private String listValuesSQLLike(String[] values , String quotation) {

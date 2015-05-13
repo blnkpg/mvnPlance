@@ -35,7 +35,7 @@ public class NewUserView extends Window implements Slot {
 		this.tf_email_repeat = new TextField("Wiederholung Email-Adresse");
 		this.tf_password = new PasswordField("Passwort");
 		this.tf_password_repeat = new PasswordField("Wiederholung Passwort");
-		this.bt_register = new Button("Anmelden");
+		this.bt_register = new Button("Sign up");
 	}
 
 	private void addElements() {
@@ -51,7 +51,7 @@ public class NewUserView extends Window implements Slot {
 
 	@Override
 	public Component getTab() {
-		return new Label("Anmelden");
+		return new Label("Sign up");
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class NewUserView extends Window implements Slot {
 	}
 
 	public boolean emailMatches() {
-		return matches(this.tf_email.getValue(), this.tf_password_repeat.getValue());
+		return matches(this.tf_email.getValue(), this.tf_email_repeat.getValue());
 	}
 
 	private boolean matches(String first , String second) {

@@ -31,16 +31,6 @@ public class LoginController implements Controller {
 				authentificationListeners.wakeUpListeners();
 			}
 		});
-
-		this.view.getNewAccount().addClickListener(new Button.ClickListener() {
-
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				newUserListeners.wakeUpListeners();
-			}
-		});
 	}
 
 	public void addAuthentificationListener(ControllerListener listener) {

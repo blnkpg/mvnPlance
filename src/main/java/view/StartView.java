@@ -15,11 +15,14 @@ public class StartView extends Window {
 	public StartView() {
 		// this.setWidth(Page.getCurrent().getBrowserWindowWidth(), Unit.PIXELS);
 		// this.setHeight((float) (Page.getCurrent().getBrowserWindowHeight() * 0.4), Unit.PIXELS);
-		this.setHeight(100, Unit.PERCENTAGE);
+		// this.setHeight(33, Unit.PERCENTAGE);
+		this.setWidth(100, Unit.PERCENTAGE);
 		this.setClosable(false);
 		this.setResizable(false);
 		this.setDraggable(false);
 		this.center();
+		this.setStyleName("transparentBG");
+
 		// this.addStyleName(RessourceHandler.BACKGROUND_LOGIN);
 		init();
 	}

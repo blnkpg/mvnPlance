@@ -1,10 +1,12 @@
 package service.modelHandling;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 import model.Person;
+import model.Timeinfo;
 import model.User;
 import service.PersistenceHandler;
 
@@ -18,7 +20,7 @@ public class UserService extends ModelService<User> {
 	@Override
 	public User getSpecificObject(User crippled) {
 		for (User user : cache) {
-			if (crippled.getUserID() == user.getUserID() || crippled.getUsername().equals(user.getUsername())) {
+			if (crippled.getPerson_personID() == user.getPerson_personID() || crippled.getUsername().equals(user.getUsername())) {
 				return user;
 			} else if (crippled.getPerson().getEmail().equalsIgnoreCase(user.getPerson().getEmail())) {
 				return user;
@@ -32,7 +34,7 @@ public class UserService extends ModelService<User> {
 		if (results.size() != 1) {
 			return null;
 		} else {
-			return results.get(results.size());
+			return results.iterator().next();
 		}
 	}
 
@@ -51,7 +53,7 @@ public class UserService extends ModelService<User> {
 		if (temp.size() > 1) {
 			return null;
 		} else {
-			return (User) temp.iterator();
+			return temp.iterator().next();
 		}
 	}
 
@@ -60,35 +62,16 @@ public class UserService extends ModelService<User> {
 		if (temp != null) {
 			crippled.setPerson(temp);
 		} else {
-			this.persistence.getPersistenceService().persist(Person.class, crippled.getPerson());
-			crippled.setPerson(getPersonFromEmail(crippled.getPerson().getEmail()));
-
+			// this.persistence.getPersistenceService().persist(Person.class, crippled.getPerson());
 		}
 
 		if (crippled.getTimeinfo() == null) {
-			// crippled.setTimeinfo(new Timeinfo());
-			// crippled.getTimeinfo().setCreateTime(new Date(System.currentTimeMillis()));
+			crippled.setTimeinfo(new Timeinfo());
+			crippled.getTimeinfo().setCreateTime(new Date(System.currentTimeMillis()));
 		}
-		// crippled.getTimeinfo().setUpdateTime(new Date(System.currentTimeMillis()));
-
-		this.persistence.getPersistenceService().persist(managedClass, crippled);
-
-		/**
-		 * Test
-		 */
-		User test = new User();
-		test.setUsername("codeTest");
-		test.setPassword("testpassword");
-		Person testPerson = new Person();
-		testPerson.setEmail("testimail@brauchs.te");
-		test.setPerson(testPerson);
-		this.persistence.getPersistenceService().persist(Person.class, test.getPerson());
-		test.setPerson(getPersonFromEmail(test.getPerson().getEmail()));
-
-		this.persistence.getPersistenceService().persist(User.class, test);
-		/**
-		 * test endr
-		 */
+		crippled.getTimeinfo().setUpdateTime(new Date(System.currentTimeMillis()));
+		// this.persistence.getPersistenceService().persist(Timeinfo.class, crippled.getTimeinfo());
+		this.persistence.getPersistenceService().persist(User.class, crippled);
 		User response = getSpecificObject(crippled);
 		return response;
 	}
@@ -105,12 +88,12 @@ public class UserService extends ModelService<User> {
 
 	private void fillPersonHashSet(HashSet<Person> hashset , List results) {
 		for (Object object : results) {
-			if (managedClass.isInstance(object)) {
+			if (Person.class.isInstance(object)) {
 				// TODO nochmal überprüfen denn eine Person deren Email schon in der db ist wird hier nicht richtig gecastet.... ich glaub das resultset is da
 				// nicht richtig
 				hashset.add((Person) object);
 			} else {
-				System.err.println("Cannot cast Object");
+				System.err.println("Cannot cast Object to Class " + Person.class.getName());
 			}
 		}
 	}

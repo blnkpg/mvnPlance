@@ -1,34 +1,39 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the person database table.
- * 
  */
 @Entity
-@Table(name="person")
-@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+@Table(name = "person" )
+@NamedQuery(name = "Person.findAll" , query = "SELECT p FROM Person p" )
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@Column(insertable = false , updatable = false , unique = true , nullable = false )
 	private int personID;
 
-	@Column(length=255)
+	@Column(length = 255 )
 	private String email;
 
-	@Column(length=45)
+	@Column(length = 45 )
 	private String lastname;
 
-	@Column(length=45)
+	@Column(length = 45 )
 	private String name;
 
-	@Column(length=45)
+	@Column(length = 45 )
 	private String pseodo;
 
 	public Person() {

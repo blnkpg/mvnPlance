@@ -11,14 +11,15 @@ public class MainService {
 	private UserService userService = null;
 
 	public MainService() {
-		this.persistence = new PersistenceHandler(PersistenceHandler.JPA, PersistenceHandler.MYSQL);
+		this.persistence = new PersistenceHandler(PersistenceHandler.JDBC, PersistenceHandler.MYSQL);
+		// this.persistence = new PersistenceHandler(PersistenceHandler.JPA, PersistenceHandler.MYSQL);
 		this.userService = new UserService(persistence);
 	}
 
 	public boolean authenticate(String username , String password) {
 		User crippled = new User();
 		crippled.setUsername(username);
-		crippled.setUsername(username);
+		crippled.setPassword(password);
 		User response = this.userService.authentize(crippled);
 
 		return response != null;

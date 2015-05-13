@@ -17,7 +17,7 @@ public class Invite implements Serializable {
 	@EmbeddedId
 	private InvitePK id;
 
-	private byte participatin;
+	private Object participatin;
 
 	//uni-directional many-to-one association to Celebration
 	@ManyToOne
@@ -35,11 +35,11 @@ public class Invite implements Serializable {
 		this.id = id;
 	}
 
-	public byte getParticipatin() {
+	public Object getParticipatin() {
 		return this.participatin;
 	}
 
-	public void setParticipatin(byte participatin) {
+	public void setParticipatin(Object participatin) {
 		this.participatin = participatin;
 	}
 

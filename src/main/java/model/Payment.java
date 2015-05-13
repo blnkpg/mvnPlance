@@ -1,43 +1,40 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the payment database table.
- * 
  */
-@Entity
-@Table(name="payment")
-@NamedQuery(name="Payment.findAll", query="SELECT p FROM Payment p")
+@Embeddable
+@Table(name = "payment" )
+@NamedQuery(name = "Payment.findAll" , query = "SELECT p FROM Payment p" )
 public class Payment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private PaymentPK id;
-
 	private double amount;
 
-	private byte paid;
-
-	@Column(nullable=false, length=45)
+	@Column(nullable = false , length = 45 )
 	private String paymentOption;
 
-	//uni-directional many-to-one association to Paidobject
+	// uni-directional many-to-one association to Paidobject
 	@ManyToOne
-	@JoinColumn(name="PaidObject_poID", nullable=false, insertable=false, updatable=false)
+	@JoinColumn(name = "PaidObject_poID" , nullable = false )
 	private Paidobject paidobject;
 
+	// uni-directional many-to-one association to Person
+	@ManyToOne(cascade = { CascadeType.ALL } )
+	@JoinColumn(name = "Person_personID" , nullable = false )
+	private Person person;
+
 	public Payment() {
-	}
-
-	public PaymentPK getId() {
-		return this.id;
-	}
-
-	public void setId(PaymentPK id) {
-		this.id = id;
 	}
 
 	public double getAmount() {
@@ -46,14 +43,6 @@ public class Payment implements Serializable {
 
 	public void setAmount(double amount) {
 		this.amount = amount;
-	}
-
-	public byte getPaid() {
-		return this.paid;
-	}
-
-	public void setPaid(byte paid) {
-		this.paid = paid;
 	}
 
 	public String getPaymentOption() {
@@ -70,6 +59,14 @@ public class Payment implements Serializable {
 
 	public void setPaidobject(Paidobject paidobject) {
 		this.paidobject = paidobject;
+	}
+
+	public Person getPerson() {
+		return this.person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 }

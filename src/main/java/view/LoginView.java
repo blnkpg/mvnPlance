@@ -19,24 +19,18 @@ public class LoginView extends Window implements Slot {
 	private FormLayout formLayout = new FormLayout();
 
 	private Button btn_login = null;
-	private Button newAccount = null;
 
 	public LoginView() {
 
 		formLayout.setStyleName("loginform");
 
 		this.tf_username = new TextField("username", "username");
-		// this.tf_username.setValue("username");
 		this.tf_username.setIcon(FontAwesome.USER);
 
 		this.tf_password = new PasswordField("password");
 		this.tf_password.setIcon(FontAwesome.LOCK);
 
 		this.btn_login = new Button("Login", FontAwesome.HEART);
-		this.newAccount = new Button();
-		this.newAccount.setStyleName("v-button-link");
-		this.newAccount.setCaption("Create an account ");
-		this.newAccount.setIcon(FontAwesome.HEART_O);
 		this.init();
 	}
 
@@ -45,7 +39,6 @@ public class LoginView extends Window implements Slot {
 		formLayout.addComponent(this.tf_username);
 		formLayout.addComponent(this.tf_password);
 		formLayout.addComponent(this.btn_login);
-		formLayout.addComponent(this.newAccount);
 
 		this.setContent(formLayout);
 	}
@@ -60,10 +53,6 @@ public class LoginView extends Window implements Slot {
 
 	public Button getButton() {
 		return this.btn_login;
-	}
-
-	public Button getNewAccount() {
-		return this.newAccount;
 	}
 
 	@Override

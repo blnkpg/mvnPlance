@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -16,14 +16,14 @@ public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(unique=true, nullable=false)
 	private int location_ID;
 
 	private int capacity;
 
 	@Column(nullable=false)
-	private byte publicity;
+	private Object publicity;
 
 	//uni-directional many-to-one association to Address
 	@ManyToOne
@@ -41,7 +41,7 @@ public class Location implements Serializable {
 			@JoinColumn(name="tags_tagname", nullable=false)
 			}
 		)
-	private List<Tag> tags;
+	private Set<Tag> tags;
 
 	//uni-directional many-to-one association to Timeinfo
 	@ManyToOne
@@ -67,11 +67,11 @@ public class Location implements Serializable {
 		this.capacity = capacity;
 	}
 
-	public byte getPublicity() {
+	public Object getPublicity() {
 		return this.publicity;
 	}
 
-	public void setPublicity(byte publicity) {
+	public void setPublicity(Object publicity) {
 		this.publicity = publicity;
 	}
 
@@ -83,11 +83,11 @@ public class Location implements Serializable {
 		this.address = address;
 	}
 
-	public List<Tag> getTags() {
+	public Set<Tag> getTags() {
 		return this.tags;
 	}
 
-	public void setTags(List<Tag> tags) {
+	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
 	}
 

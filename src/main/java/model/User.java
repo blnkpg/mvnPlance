@@ -1,68 +1,58 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
  * The persistent class for the user database table.
+ * 
  */
 @Entity
-@Table(name = "user" )
-@NamedQuery(name = "User.findAll" , query = "SELECT u FROM User u" )
+@Table(name="user")
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO )
-	@Column(unique = true , nullable = false )
-	private int userID;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
+	private int person_personID;
 
-	@Lob
-	private byte[] oauth;
+	private Object oauth;
 
-	@Column(nullable = false , length = 32 )
+	@Column(nullable=false, length=32)
 	private String password;
 
-	@Column(nullable = false , length = 16 )
+	@Column(nullable=false, length=16)
 	private String username;
 
-	// uni-directional one-to-one association to Person
-	@OneToOne(cascade = CascadeType.PERSIST )
-	@JoinColumn(name = "person_personID" )
+	//uni-directional one-to-one association to Person
+	@OneToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="person_personID", nullable=false, insertable=false, updatable=false)
 	private Person person;
 
-	// uni-directional many-to-one association to Timeinfo
-	@OneToOne(cascade = CascadeType.ALL )
-	@JoinColumn(name = "fk_timeinfo" , nullable = true )
+	//uni-directional many-to-one association to Timeinfo
+	@ManyToOne
+	@JoinColumn(name="fk_timeinfo", nullable=false)
 	private Timeinfo timeinfo;
 
 	public User() {
 	}
 
-	public int getUserID() {
-		return this.userID;
+	public int getPerson_personID() {
+		return this.person_personID;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public void setPerson_personID(int person_personID) {
+		this.person_personID = person_personID;
 	}
 
-	public byte[] getOauth() {
+	public Object getOauth() {
 		return this.oauth;
 	}
 
-	public void setOauth(byte[] oauth) {
+	public void setOauth(Object oauth) {
 		this.oauth = oauth;
 	}
 

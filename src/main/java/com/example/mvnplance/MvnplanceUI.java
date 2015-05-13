@@ -15,7 +15,6 @@ public class MvnplanceUI extends UI {
 		MainController mainControl = new MainController(this);
 		System.out.println("überlebt");
 
-		mainControl.signUPTest();
 		// Button button = new Button("Click Me");
 		// button.addClickListener(new Button.ClickListener() {
 		// public void buttonClick(ClickEvent event) {

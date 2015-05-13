@@ -1504,7 +1504,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 body {
-	background-color: rgba(255, 255, 255, 0);
+	background-color: rgba(63, 63, 63, 0.3);
 	font-family: Lato, sans-serif;
 }
 
@@ -1537,7 +1537,7 @@ body {
 }
 
 .container {
-	margin: 100px auto;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .accordion {
@@ -1710,6 +1710,22 @@ body {
 .dribbble-icon a:after {
 	background-image: -webkit-linear -gradient(zip(#e03a70 #f189b8));
 	background-image: linear-gradient( zip(#e03a70 #f189b8));
+}
+
+.dribbble-icon #transparentBG {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dribbble-icon #video_background {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: 100%;
+	height: 100%;
+	z-index: -1000;
+	overflow: hidden;
 }
 
 @font-face {

@@ -4,8 +4,8 @@ import service.event.ControllerListener;
 import service.event.ControllerRegister;
 import view.NewUserView;
 
-import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Component;
 
 public class NewUserController implements Controller {
@@ -15,11 +15,13 @@ public class NewUserController implements Controller {
 
 	public NewUserController(NewUserView newUser) {
 		this.gui = newUser;
+		registerListeners();
 	}
 
 	@Override
 	public Component getView() {
 		return this.gui;
+
 	}
 
 	public void addNewUserListener(ControllerListener listener) {
@@ -27,26 +29,37 @@ public class NewUserController implements Controller {
 	}
 
 	public void registerListeners() {
-		this.gui.getButton().addClickListener(new Button.ClickListener() {
+		this.gui.getButton().addClickListener(new ClickListener() {
+
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				System.out.println("fotze");
+				event.getButton().setCaption("Event Fired");
+				event.getButton().requestRepaint();
+
 				if (!gui.emailMatches()) {
-
+					event.getButton().setCaption("Emailaddresses don#t match!");
+					event.getButton().requestRepaint();
 				} else if (!gui.passwordMatches()) {
-
+					event.getButton().setCaption("Passwords donÄt match!");
+					event.getButton().requestRepaint();
 				} else if (gui.getEmail().equals("")) {
-
+					event.getButton().setCaption("Emailaddresse is empty!");
+					event.getButton().requestRepaint();
 				} else if (gui.getPassword().equals("")) {
-
-				} else if (gui.getUsername().equals("")) {
-
+					event.getButton().setCaption("Password is empty!");
+					event.getButton().requestRepaint();
 				} else {
+					event.getButton().setCaption("I register.... hopefully");
+					event.getButton().requestRepaint();
 					newUserRegister.wakeUpListeners();
+					gui.close();
 				}
+
 			}
 		});
+
 	}
 
 	public String getUsername() {

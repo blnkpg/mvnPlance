@@ -1,4 +1,4 @@
-package service.jpa;
+package service.persistence;
 
 import java.util.List;
 
