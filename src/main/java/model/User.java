@@ -1,41 +1,55 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.HashSet;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the user database table.
- * 
  */
 @Entity
-@Table(name="user")
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@Table(name = "user" )
+@NamedQuery(name = "User.findAll" , query = "SELECT u FROM User u" )
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false)
+	@GeneratedValue(strategy = GenerationType.AUTO )
+	@Column(unique = true , nullable = false )
 	private int person_personID;
 
 	private Object oauth;
 
-	@Column(nullable=false, length=32)
+	@Column(nullable = false , length = 32 )
 	private String password;
 
-	@Column(nullable=false, length=16)
+	@Column(nullable = false , length = 16 )
 	private String username;
 
-	//uni-directional one-to-one association to Person
-	@OneToOne(cascade={CascadeType.ALL})
-	@JoinColumn(name="person_personID", nullable=false, insertable=false, updatable=false)
+	// uni-directional one-to-one association to Person
+	@OneToOne(cascade = { CascadeType.ALL } )
+	@JoinColumn(name = "person_personID" , nullable = false , insertable = false , updatable = false )
 	private Person person;
 
-	//uni-directional many-to-one association to Timeinfo
+	// uni-directional many-to-one association to Timeinfo
 	@ManyToOne
-	@JoinColumn(name="fk_timeinfo", nullable=false)
+	@JoinColumn(name = "fk_timeinfo" , nullable = false )
 	private Timeinfo timeinfo;
+
+	HashSet<Celebration> organizedCelebrations = new HashSet();
+
+	HashSet<User> friends = new HashSet<User>();
 
 	public User() {
 	}
@@ -88,4 +102,11 @@ public class User implements Serializable {
 		this.timeinfo = timeinfo;
 	}
 
+	public HashSet<Celebration> getCelebrations() {
+		return this.organizedCelebrations;
+	}
+
+	public HashSet<User> getFriends() {
+		return this.friends;
+	}
 }

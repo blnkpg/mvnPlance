@@ -12647,6 +12647,38 @@ body {
 	overflow: hidden;
 }
 
+.mvnplance .v-panel > div {
+	background: transparent;
+}
+
+.mvnplance .v-panel {
+	background: transparent;
+}
+
+.mvnplance .v-window {
+	border-style: none;
+	padding: 4px 4px;
+	border-radius: 0px;
+	background-color: rgba(63, 63, 63, 0.5);
+	color: #474747;
+	-webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1), 0 3px 5px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.09098);
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1), 0 3px 5px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.09098);
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 16px 80px -6px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.09098);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 16px 80px -6px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.09098);
+	padding: 0;
+	min-width: 148px !important;
+	min-height: 37px !important;
+	white-space: nowrap;
+	overflow: hidden !important;
+	-webkit-transition: width 200ms, height 200ms, top 200ms, left 200ms;
+	-moz-transition: width 200ms, height 200ms, top 200ms, left 200ms;
+	transition: width 200ms, height 200ms, top 200ms, left 200ms;
+}
+
 .mvnplance .picture-icon-background {
 	border-color: gray;
 	border-radius: 50%;
@@ -12657,20 +12689,22 @@ body {
 
 .mvnplance .title-invitation {
 	font-size: 24pt;
-	color: #Ed7668;
+	color: #008bbd;
 }
 
 .mvnplance .background-invitation {
-	background-color: #Ed7668;
+	background-color: #008bbd;
+	height: 40%;
 }
 
 .mvnplance .title-upcoming {
 	font-size: 24pt;
-	color: #6890ED;
+	color: #00a89b;
 }
 
 .mvnplance .background-upcoming {
-	background-color: #6890ED;
+	background-color: #00a89b;
+	height: 40%;
 }
 
 .mvnplance .loginWindow {

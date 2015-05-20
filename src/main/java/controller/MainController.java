@@ -11,6 +11,7 @@ import view.component.BaseLayout;
 import com.vaadin.server.Page;
 import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.Embedded;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -32,17 +33,22 @@ public class MainController implements Controller {
 		final Video v = new Video("video");
 		v.setStyleName("video_background");
 		v.setSource(RessourceHandler.VIDEO);
+
 		v.setSizeFull();
 		v.setAutoplay(true);
+		final Embedded bgVideo = new Embedded();
+		bgVideo.setSource(RessourceHandler.BACKGROUNDVID);
+		bgVideo.setType(Embedded.TYPE_BROWSER);
+		bgVideo.setWidth(100, Unit.PERCENTAGE);
+		bgVideo.setHeight(100, Unit.PERCENTAGE);
 
-		this.gui.setContent(v);
-
+		// this.gui.setContent(v);
+		this.gui.setContent(bgVideo);
 		openStartview();
 	}
 
 	@Override
 	public Component getView() {
-		// TODO Auto-generated method stub
 		return this.gui;
 	}
 
@@ -86,6 +92,8 @@ public class MainController implements Controller {
 						newUserController.getEmail(), newUserController.getPassword())) {
 					registerPopUp.close();
 					gui.setContent(baseLayout = new BaseLayout());
+				} else {
+					openStartview();
 				}
 			}
 		});

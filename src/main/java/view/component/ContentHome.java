@@ -25,6 +25,7 @@ public class ContentHome extends VerticalLayout {
 	public ContentHome() {
 		this.pageWidth = Page.getCurrent().getBrowserWindowWidth();
 		this.pageHeight = Page.getCurrent().getBrowserWindowHeight();
+		this.setHeight(100, Unit.PERCENTAGE);
 
 		Label titleInvites = new Label("Friends & Invites");
 		titleInvites.setStyleName(RessourceHandler.TITEL_INVITATION);
@@ -32,20 +33,27 @@ public class ContentHome extends VerticalLayout {
 		Label titleUpcoming = new Label("Upcoming");
 		titleUpcoming.setStyleName(RessourceHandler.TITEL_UPCOMING);
 
-		HorizontalLayout firstRow = createRow(RessourceHandler.BACKGROUND_INVITATION, createVerticalLayout(new Component[] { titleInvites,
-				createHorizontalLayout(createComponents(null)) }));
-		addComponent(firstRow);
-
 		Image img = new Image();
 		img.setSource(RessourceHandler.PLANCE);
-		HorizontalLayout secondRow = createRow(RessourceHandler.BACKGROUND_UPCOMING, createVerticalLayout(new Component[] { titleUpcoming,
-				createHorizontalLayout(createComponents(img)) }));
-		addComponent(secondRow);
+		// HorizontalLayout secondRow = createRow(RessourceHandler.BACKGROUND_UPCOMING, createVerticalLayout(new Component[] { titleUpcoming,
+		// createHorizontalLayout(createComponents(img)) }));
+		// secondRow.setStyleName(RessourceHandler.BACKGROUND_UPCOMING);
+		// addComponent(secondRow);
+		MainScreenRow first = new MainScreenRow(createComponents(img), RessourceHandler.BACKGROUND_UPCOMING, 40);
+		addComponent(first);
 
-		HorizontalLayout thirdMenu = createHorizontalLayout(createThirdRow());
-		VerticalLayout thirdRow = createVerticalLayout(new Component[] { new Label(""), thirdMenu });
-		thirdRow.setComponentAlignment(thirdMenu, Alignment.BOTTOM_CENTER);
-		addComponent(thirdRow);
+		// HorizontalLayout firstRow = createRow(RessourceHandler.BACKGROUND_INVITATION, createVerticalLayout(new Component[] { titleInvites,
+		// createHorizontalLayout(createComponents(null)) }));
+		// firstRow.setStyleName(RessourceHandler.BACKGROUND_INVITATION);
+		// addComponent(firstRow);
+
+		MainScreenRow second = new MainScreenRow(createComponents(null), RessourceHandler.BACKGROUND_INVITATION, 40);
+		addComponent(second);
+
+		// HorizontalLayout thirdMenu = createHorizontalLayout(createThirdRow());
+		// VerticalLayout thirdRow = createVerticalLayout(new Component[] { new Label(""), thirdMenu });
+		// thirdRow.setComponentAlignment(thirdMenu, Alignment.BOTTOM_CENTER);
+		// addComponent(thirdRow);
 
 	}
 
@@ -60,7 +68,7 @@ public class ContentHome extends VerticalLayout {
 		VerticalLayout vLayout = new VerticalLayout();
 		vLayout.addComponent(components[0]);
 		vLayout.setComponentAlignment(components[0], Alignment.TOP_LEFT);
-		vLayout.addComponent(new CPTPlaceholder(0, 30, Unit.PIXELS));
+		// vLayout.addComponent(new CPTPlaceholder(0, 30, Unit.PIXELS));
 		vLayout.addComponent(components[1]);
 		vLayout.setComponentAlignment(components[0], Alignment.BOTTOM_LEFT);
 		return vLayout;
@@ -126,7 +134,7 @@ public class ContentHome extends VerticalLayout {
 	}
 
 	private CPTPlaceholder createCanvas(String cssClass) {
-		CPTPlaceholder placeholder = new CPTPlaceholder(7, this.pageHeight / 3, Unit.PIXELS);
+		CPTPlaceholder placeholder = new CPTPlaceholder(7, (int) (this.pageHeight * 0.4), Unit.PIXELS);
 		placeholder.setStyleName(cssClass);
 		return placeholder;
 	}

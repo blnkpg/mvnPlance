@@ -13,6 +13,8 @@ public class RessourceHandler {
 	public static final ThemeResource HISTORY = new ThemeResource("img/history.svg");
 	public static final ThemeResource USER_DUMMY = new ThemeResource("img/user_dummy.svg");
 	public static final ThemeResource VIDEO = new ThemeResource("img/Medien.mp4");
+	// public static final ThemeResource BACKGROUNDVID = new ThemeResource("video/test/index.html");
+	public static final ThemeResource BACKGROUNDVID = new ThemeResource("video/index.html");
 
 	// CSS-Klaasen
 	public static final String ICON_BACKGROUD = "picture-icon-background";

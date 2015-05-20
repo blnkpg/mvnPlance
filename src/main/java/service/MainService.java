@@ -7,7 +7,6 @@ import service.modelHandling.UserService;
 public class MainService {
 
 	private PersistenceHandler persistence = null;
-	private AuthService authentification = null;
 	private UserService userService = null;
 
 	public MainService() {

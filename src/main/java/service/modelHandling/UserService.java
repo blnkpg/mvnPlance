@@ -45,16 +45,19 @@ public class UserService extends ModelService<User> {
 			}
 		}
 
-		HashSet<User> temp = new HashSet<User>();
-		fillHashSet(
-				temp,
-				this.persistence.getPersistenceService().getWhere(managedClass.getName(), new String[] { "username", "password" },
-						new String[] { crippled.getUsername(), crippled.getPassword() }));
-		if (temp.size() > 1) {
-			return null;
-		} else {
-			return temp.iterator().next();
-		}
+		this.cache.add(crippled);
+		return crippled;
+
+		// HashSet<User> temp = new HashSet<User>();
+		// fillHashSet(
+		// temp,
+		// this.persistence.getPersistenceService().getWhere(managedClass.getName(), new String[] { "username", "password" },
+		// new String[] { crippled.getUsername(), crippled.getPassword() }));
+		// if (temp.size() > 1) {
+		// return null;
+		// } else {
+		// return temp.iterator().next();
+		// }
 	}
 
 	public User signUp(User crippled) {
@@ -71,9 +74,13 @@ public class UserService extends ModelService<User> {
 		}
 		crippled.getTimeinfo().setUpdateTime(new Date(System.currentTimeMillis()));
 		// this.persistence.getPersistenceService().persist(Timeinfo.class, crippled.getTimeinfo());
-		this.persistence.getPersistenceService().persist(User.class, crippled);
-		User response = getSpecificObject(crippled);
-		return response;
+
+		// ----------------------- Removal for non Persistance ----------------------------------//
+		// this.persistence.getPersistenceService().persist(User.class, crippled);
+		// User response = getSpecificObject(crippled);
+		// return response;
+		this.cache.add(crippled);
+		return crippled;
 	}
 
 	private Person getPersonFromEmail(String email) {

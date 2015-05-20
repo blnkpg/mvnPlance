@@ -40,12 +40,12 @@ public class NewUserView extends Window implements Slot {
 
 	private void addElements() {
 		this.formLayout.addComponent(this.tf_username);
-		this.formLayout.addComponent(this.tf_name);
-		this.formLayout.addComponent(this.tf_lastname);
+		// this.formLayout.addComponent(this.tf_name);
+		// this.formLayout.addComponent(this.tf_lastname);
 		this.formLayout.addComponent(this.tf_email);
-		this.formLayout.addComponent(this.tf_email_repeat);
+		// this.formLayout.addComponent(this.tf_email_repeat);
 		this.formLayout.addComponent(this.tf_password);
-		this.formLayout.addComponent(this.tf_password_repeat);
+		// this.formLayout.addComponent(this.tf_password_repeat);
 		this.formLayout.addComponent(this.bt_register);
 	}
 
@@ -64,15 +64,13 @@ public class NewUserView extends Window implements Slot {
 	}
 
 	public boolean passwordMatches() {
-		return matches(this.tf_password.getValue(), this.tf_password_repeat.getValue());
+		// return matches(this.tf_password.getValue(), this.tf_password_repeat.getValue());
+		return true;
 	}
 
 	public boolean emailMatches() {
-		return matches(this.tf_email.getValue(), this.tf_email_repeat.getValue());
-	}
-
-	private boolean matches(String first , String second) {
-		return first.equals(second);
+		// return matches(this.tf_email.getValue(), this.tf_email_repeat.getValue());
+		return true;
 	}
 
 	public String getUsername() {

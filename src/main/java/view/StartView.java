@@ -1,11 +1,8 @@
 package view;
 
-import gui.ressource.RessourceHandler;
 import view.component.HorizontalAccordion;
 
 import com.vaadin.ui.Component;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
 
 public class StartView extends Window {
@@ -22,16 +19,17 @@ public class StartView extends Window {
 		this.setDraggable(false);
 		this.center();
 		this.setStyleName("transparentBG");
+		super.setStyleName("transparentBG");
 
-		// this.addStyleName(RessourceHandler.BACKGROUND_LOGIN);
+		// this.addStyleName(RessourceHandler.BACKGROUND_LOGIN); rgba(95, 90, 86, 0.9)
 		init();
 	}
 
 	public void init() {
-		Image logo = new Image();
-		logo.setSource(RessourceHandler.PLANCE);
-		horizon.addSlot(logo, new Label(
-				"<p>Plance is a fantastic tool</p> which offers you <b>every feature</b> you need to plan celebrations and your budget."));
+		// Image logo = new Image();
+		// logo.setSource(RessourceHandler.PLANCE);
+		// horizon.addSlot(logo, new Label(
+		// "<p>Plance is a fantastic tool</p> which offers you <b>every feature</b> you need to plan celebrations and your budget."));
 
 		this.setContent(horizon);
 	}
